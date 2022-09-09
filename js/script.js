@@ -41,7 +41,7 @@ function getMoveName(argMoveId) {
   } else if (argMoveId == 3) {
     return "papier";
   }
-  printMessage("Nie znam ruchu o id " + argMoveId + ".");
+  printMessage("Nie znam ruchu o id " + argMoveId + "!");
   return "nieznany ruch";
 }
 
