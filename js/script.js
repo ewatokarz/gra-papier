@@ -1,21 +1,22 @@
-let computerMove;
-
-playGame();
-
-function playGame() {
-  computerMove = getMoveName(Math.floor(Math.random() * 3 + 1));
+function playGame(argMoveId) {
+  const computerMove = getMoveName(Math.floor(Math.random() * 3 + 1));
   printMessage("Ruch komputera to: " + computerMove);
 
-  document.getElementById("kamien").addEventListener("click", function () {
-    buttonClicked(1);
-  });
-  document.getElementById("papier").addEventListener("click", function () {
-    buttonClicked(2);
-  });
-  document.getElementById("nozyce").addEventListener("click", function () {
-    buttonClicked(3);
-  });
+  const playerMove = getMoveName(argMoveId);
+  printMessage("Ruch gracza: " + playerMove);
+
+  displayResult(computerMove, playerMove);
 }
+
+document.getElementById("kamien").addEventListener("click", function () {
+  playGame(1);
+});
+document.getElementById("nozyce").addEventListener("click", function () {
+  playGame(2);
+});
+document.getElementById("papier").addEventListener("click", function () {
+  playGame(3);
+});
 
 function buttonClicked(argMoveId) {
   let playerMove;
